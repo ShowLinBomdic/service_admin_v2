@@ -21,12 +21,12 @@
 <body class="hold-transition register-page">
     <div class="register-box">
         <div class="register-logo">
-            <a href="#"><b>Service Admin</b></a>
+            <a href="#"><b><strong>Service</strong> Admin</b></a>
         </div>
 
         <div class="card">
             <div class="card-body register-card-body">
-                <p class="login-box-msg">Register a new membership</p>
+                <p class="login-box-msg">{{__('ui.Register a new membership')}}</p>
 
                 <form action="{{ route('register') }}" method="post">
                     @csrf
@@ -71,13 +71,13 @@
                         </div>
                         <!-- /.col -->
                         <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">Register</button>
+                            <button type="submit" class="btn btn-primary btn-block">{{__('ui.Register')}}</button>
                         </div>
                         <!-- /.col -->
                     </div>
                 </form>
 
-                <a href="{{ route('login') }}" class="text-center">I already have a membership</a>
+                <a href="{{ route('login') }}" class="text-center">{{__('ui.I already have a membership')}}</a>
             </div>
             <!-- /.form-box -->
         </div><!-- /.card -->
@@ -85,10 +85,10 @@
     <!-- /.register-box -->
 
     <!-- jQuery -->
-    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap 4 -->
-    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <!-- AdminLTE App -->
-    <script src="../../dist/js/adminlte.min.js"></script>
+    <script src="{{asset('dist/js/adminlte.min.js')}}"></script>
 </body>
 </html>

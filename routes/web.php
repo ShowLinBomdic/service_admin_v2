@@ -14,9 +14,39 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->to('home');
 });
 
-Auth::routes();
 
+Route::prefix('account')
+    ->name('account.')
+    ->middleware('auth', 'role:superadministrator|administrator|user')
+    ->group(function(){
+        Route::get('list/{page?}','AccountController@getList')->name('list');
+        Route::get('new','AccountController@create_user')->name('new');
+        Route::match(['post','get'],'update_service_type/{user_id?}','AccountController@update_service_type');
+    });
+
+Route::prefix('settings')
+    ->name('settings.')
+    ->middleware('auth','role:superadministrator|administrator')
+    ->group(function(){
+        Route::get('users/{page?}','Settings\UserController@index')->name('users.list');
+        Route::get('users/create','Settings\UserController@index')->name('users.create');
+        Route::get('users/{id}','Settings\UserController@form')->name('users.form');
+        Route::post('users/update','Settings\UserController@update')->name('users.update');
+        Route::post('users/store','Settings\UserController@store')->name('users.store');
+
+        Route::get('permission','Settings\PermissionController@index')->name('permission.list');
+
+
+
+        Route::get('roles','Settings\RolesController@index')->name('roles.list');
+
+
+    });
+
+
+
+Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

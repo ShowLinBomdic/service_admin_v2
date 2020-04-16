@@ -10,6 +10,7 @@
 
 
     <x-main_css/>
+    @yield('css')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <!-- Site wrapper -->
@@ -32,5 +33,6 @@
 <!-- ./wrapper -->
 
 <x-main_js/>
+@yield('js')
 </body>
 </html>

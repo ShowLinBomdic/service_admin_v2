@@ -150,7 +150,7 @@
                 </li>
 
 
-                <li class="nav-header">Backend Settings</li>
+                <li class="nav-header">後端設定</li>
                 <li class="nav-item">
                     <a href="{{route('settings.users.list')}}" class="nav-link">
                         <i class="nav-icon fas fa-user-cog"></i>
